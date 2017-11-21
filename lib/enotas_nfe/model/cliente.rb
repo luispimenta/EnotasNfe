@@ -10,7 +10,7 @@ module EnotasNfe
       attribute :cpfCnpj, String
       attribute :inscricaoMunicipal, String
       attribute :inscricaoEstadual, String
-      attribute :indicadorContribuinte_icms, String
+      attribute :indicadorContribuinteICMS, String
       attribute :telefone, String
 
       attribute :endereco, Endereco

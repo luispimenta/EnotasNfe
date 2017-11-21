@@ -5,13 +5,18 @@ module EnotasNfe
     include Facades
     include Endpoints
 
-    DEFAULT_ENDPOINT = "https://api.enotasgw.com.br/v1"
+    NFSE_ENDPOINT = "https://api.enotasgw.com.br/v1"
+    NFE_ENDPOINT = "https://api.enotasgw.com.br/v2"
 
     attr_accessor :auth_token, :endpoint
 
-    def initialize(auth_token, endpoint = nil)
+    def initialize(auth_token, endpoint)
       @auth_token = auth_token
-      @endpoint = endpoint || DEFAULT_ENDPOINT      
+      if endpoint == 'nfe'
+        @endpoint = NFE_ENDPOINT
+      else
+        @endpoint = NFSE_ENDPOINT      
+      end
     end
 
   end

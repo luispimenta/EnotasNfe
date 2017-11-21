@@ -12,7 +12,7 @@ module EnotasNfe
       attribute :ncm, String
       attribute :quantidade, Integer
       attribute :unidadeMedida, String
-      attribute :valorUnitario, Decimal
+      attribute :valorUnitario, Float
       attribute :impostos, Impostos
 
     end
