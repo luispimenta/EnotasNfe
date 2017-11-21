@@ -1,0 +1,20 @@
+module EnotasNfe
+  module Model
+    class Produto
+
+      include Virtus.model
+      require "enotas_nfe/model/impostos"
+
+      attribute :descricao, String
+      attribute :cfop, String
+      attribute :codigo, String
+      attribute :descricao, String
+      attribute :ncm, String
+      attribute :quantidade, Integer
+      attribute :unidadeMedida, String
+      attribute :valorUnitario, Decimal
+      attribute :impostos, Impostos
+
+    end
+  end
+end

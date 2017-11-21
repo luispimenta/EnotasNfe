@@ -1,0 +1,25 @@
+require "virtus"
+require "virtus_convert"
+require "faraday"
+require "faraday_middleware"
+
+require "enotas_nfe/version"
+require "enotas_nfe/middleware"
+require "enotas_nfe/connection"
+require "enotas_nfe/request"
+require "enotas_nfe/endpoints"
+require "enotas_nfe/model/endereco"
+require "enotas_nfe/model/servico"
+require "enotas_nfe/model/produto"
+require "enotas_nfe/model/cliente"
+require "enotas_nfe/model/nfe"
+require "enotas_nfe/model/cofins"
+require "enotas_nfe/model/icms"
+require "enotas_nfe/model/impostos"
+require "enotas_nfe/model/issqn"
+require "enotas_nfe/model/pis"
+require "enotas_nfe/facades"
+require "enotas_nfe/client"
+
+module EnotasNfe
+end
