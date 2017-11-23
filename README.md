@@ -13,6 +13,8 @@ Exemplo em PHP para nfse pode ser [encontrado aqui.](https://github.com/eNotasGW
 
 Exemplo em PHP para nfe e nfce pode ser [encontrado aqui.](https://github.com/eNotasGW/php-client-v2) - na biblioteca oficial.
 
+Exemplos diversos para emissão de nfe [encontrado aqui.](http://portal.enotasgw.com.br/knowledge-base/exemplos-emissao-nfe-produto-conjugada/) - na biblioteca oficial.
+
 ## Instalação
 
 Adicione o código abaixo ao Gemfile da sua aplicação:
@@ -29,7 +31,7 @@ Ou instale manualmente:
 
     $ gem install enotas-nfe
 
-## Uso básico
+## Uso básico para NFSE
 
 * Instancie o cliente passando sua API key:
 
@@ -84,6 +86,8 @@ nfe.valorTotal = 1.00
 nfe.nfse_create('id-da-empresa-no-enotas', nfe)
 
 ```
+
+## Uso básico para NFE
 
 * Instancie o cliente passando sua API key:
 

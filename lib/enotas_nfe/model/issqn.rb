@@ -5,7 +5,7 @@ module EnotasNfe
       include Virtus.model
 
       attribute :itemListaServicoLC116, String
-      attribute :aliquotaIss, Decimal
+      attribute :aliquotaIss, Float
 
     end
   end

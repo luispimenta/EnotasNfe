@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   
   s.summary       = "E-Notas nfe"
   s.description   = "E-Notas nfe gateway wrapper"
-  s.homepage      = "https://github.com/luispimenta/enotas-client"
+  s.homepage      = "https://github.com/luispimenta/EnotasNfe"
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
