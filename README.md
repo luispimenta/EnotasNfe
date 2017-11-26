@@ -20,7 +20,7 @@ Exemplos diversos para emissão de nfe [encontrado aqui.](http://portal.enotasgw
 Adicione o código abaixo ao Gemfile da sua aplicação:
 
 ```ruby
-gem 'enotas-nfe'
+gem 'enotas_nfe'
 ```
 
 E execute:
@@ -29,7 +29,30 @@ E execute:
 
 Ou instale manualmente:
 
-    $ gem install enotas-nfe
+    $ gem install enotas_nfe
+
+## Configurando a empresa
+
+```ruby
+client = Enotas::Client.new('sua-api-key-do-e-notas', 'nfse')
+empresa = EnotasNfe::Model::Empresa.new(client.get_empresa('id-da-empresa-no-enotas'))
+
+## realize os ajustes da empresa, como nomeFantasia, email, etc
+
+## atualize ou crie uma empresa
+client.create_update_empresa(empresa)
+
+```
+
+## Adicionando/trocando logotipo
+
+```ruby
+client = Enotas::Client.new('sua-api-key-do-e-notas', 'nfse')
+empresa = EnotasNfe::Model::Empresa.new(client.get_empresa('id-da-empresa-no-enotas'))
+empresa.logotipo = open('http://www.example.com/foo.png')
+client.set_logo('id-da-empresa-no-enotas', empresa)
+
+```
 
 ## Uso básico para NFSE
 

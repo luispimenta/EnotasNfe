@@ -20,6 +20,13 @@ require "enotas_nfe/model/issqn"
 require "enotas_nfe/model/pis"
 require "enotas_nfe/facades"
 require "enotas_nfe/client"
+require "enotas_nfe/model/ambiente_homologacao"
+require "enotas_nfe/model/ambiente_producao"
+require "enotas_nfe/model/configuracoes_nfse_homologacao"
+require "enotas_nfe/model/configuracoes_nfse_producao"
+require "enotas_nfe/model/csc"
+require "enotas_nfe/model/emissao_nfe_consumidor"
+require "enotas_nfe/model/empresa"
 
 module EnotasNfe
 end

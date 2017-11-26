@@ -2,6 +2,25 @@ module EnotasNfe
   module Endpoints
     include Request
 
+    ## rotas para criaçacão/update e onfiguraçao da empresa
+    def get_empresas(pageNumber, pageSize)
+      get("empresas?pageNumber=#{pageNumber}&pageSize=#{pageNumber}")
+    end
+
+    def get_empresa(firm_id)
+      get("empresas/#{firm_id}")
+    end
+
+    def create_update_empresa(body)
+      post("empresas", body)
+    end
+
+    def set_logo(firm_id, body)
+      post("empresas/#{firm_id}/logo", body)
+    end
+
+
+    ## rotas para nota fiscal eletronica
     def nfe_create(firm_id, body)
       post("empresas/#{firm_id}/nf-e", body)
     end
@@ -14,6 +33,7 @@ module EnotasNfe
       get("empresas/#{firm_id}/nf-e/#{id}")
     end
 
+    ## rotas para nota fiscal de serviço
     def nfse_list(firm_id, body = {})
       get("empresas/#{firm_id}/nfes", body)
     end
