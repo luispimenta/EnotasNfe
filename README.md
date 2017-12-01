@@ -1,6 +1,6 @@
 # eNotas Gateway - Ruby
 
-Wrapper não OFICIAL Ruby da API do eNotas Gateway, plataforma de emissâo automática de nota fiscal eletrônica de serviço (NFS-e), Produto (NF-e) e Consumidor (NFC-e).
+GEM não OFICIAL Ruby da API do eNotas Gateway, plataforma de emissâo automática de nota fiscal eletrônica de serviço (NFS-e), Produto (NF-e) e Consumidor (NFC-e).
 
 Esse projeto foi um fork de -> https://github.com/12min/enotas-client
 
@@ -206,8 +206,7 @@ Issues e comentários são sempre bem-vindos no repoistório oficial: https://gi
 Quer contribuir e não sabe por onde começar? Veja nosso ROADMAP:
 
 * Escrever testes;
-* Normalizar campos dos models para o padrão ruby;
-* Cobrir os endpoints referentes ao resource "empresa".
+* Finalizar chamada para troca de logotipo da empresa
 
 ## License
 

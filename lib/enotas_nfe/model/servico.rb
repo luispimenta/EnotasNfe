@@ -17,6 +17,7 @@ module EnotasNfe
       attribute :valorInss, Decimal
       attribute :valorIr, Decimal
       attribute :valorPis, Decimal
+      attribute :valorCsll, Decimal
 
     end
   end

@@ -19,7 +19,6 @@ module EnotasNfe
       post("empresas/#{firm_id}/logo", body)
     end
 
-
     ## rotas para nota fiscal eletronica
     def nfe_create(firm_id, body)
       post("empresas/#{firm_id}/nf-e", body)
@@ -31,6 +30,19 @@ module EnotasNfe
 
     def nfe_get(firm_id, id)
       get("empresas/#{firm_id}/nf-e/#{id}")
+    end
+
+    ## rotas para nota fiscal do consumidor eletronica
+    def nfce_create(firm_id, body)
+      post("empresas/#{firm_id}/nfc-e", body)
+    end
+
+    def nfce_delete(firm_id, nfe_id)
+      delete("empresas/#{firm_id}/nfc-e/#{nfe_id}")
+    end
+
+    def nfce_get(firm_id, id)
+      get("empresas/#{firm_id}/nfc-e/#{id}")
     end
 
     ## rotas para nota fiscal de serviço

@@ -20,6 +20,7 @@ module EnotasNfe
       attribute :itens, Array
       attribute :servico, Servico
       attribute :cliente, Cliente
+      attribute :pedido, Pedido
 
     end
   end

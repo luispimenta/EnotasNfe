@@ -8,6 +8,7 @@ module EnotasNfe
 
       attribute :csc, Csc
       attribute :serieNFe, String
+      attribute :sequencialNFe, Integer
 
     end
   end
