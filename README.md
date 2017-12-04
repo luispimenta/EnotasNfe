@@ -44,15 +44,6 @@ client.create_update_empresa(empresa)
 
 ```
 
-## Adicionando/trocando logotipo
-
-```ruby
-client = Enotas::Client.new('sua-api-key-do-e-notas', 'nfse')
-empresa = EnotasNfe::Model::Empresa.new(client.get_empresa('id-da-empresa-no-enotas'))
-empresa.logotipo = open('http://www.example.com/foo.png')
-client.set_logo('id-da-empresa-no-enotas', empresa)
-
-```
 
 ## Uso básico para NFSE
 

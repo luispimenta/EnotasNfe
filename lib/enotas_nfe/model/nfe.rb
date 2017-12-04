@@ -5,6 +5,8 @@ module EnotasNfe
       include Virtus.model
 
       attribute :id, String
+      attribute :numero, Integer
+      attribute :serie, Integer
       attribute :enviarPorEmail, Boolean
       attribute :ambienteEmissao, String
       attribute :naturezaOperacao, String

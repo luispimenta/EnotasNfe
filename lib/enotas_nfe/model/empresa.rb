@@ -13,7 +13,7 @@ module EnotasNfe
 
       attribute :id #Em casos de atualização o identificador único da empresa deve ser informado, atributo "id".
       attribute :empresaId, String
-      attribute :logotipo, StringIO.new
+      attribute :logotipo, String
       attribute :cnpj, String
       attribute :inscricaoMunicipal, String
       attribute :razaoSocial, String
@@ -24,10 +24,9 @@ module EnotasNfe
       attribute :endereco, Endereco
       attribute :enviarEmailCliente, Boolean
       attribute :emissaoNFeConsumidor, EmissaoNFeConsumidor
-      attribute :ambienteProducao, AmbienteProducao
-      attribute :ambienteHomologacao, AmbienteHomologacao
       attribute :configuracoesNFSeHomologacao, ConfiguracoesNFSeHomologacao
       attribute :configuracoesNFSeProducao, ConfiguracoesNFSeProducao
+      attribute :incentivadorCultural, Boolean
      
     end
   end
