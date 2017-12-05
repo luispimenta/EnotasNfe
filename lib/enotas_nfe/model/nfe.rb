@@ -6,7 +6,7 @@ module EnotasNfe
 
       attribute :id, String
       attribute :numero, Integer
-      attribute :serie, Integer
+      attribute :serie, String
       attribute :enviarPorEmail, Boolean
       attribute :ambienteEmissao, String
       attribute :naturezaOperacao, String
