@@ -15,6 +15,7 @@ module EnotasNfe
       attribute :valorUnitario, Float
       attribute :descontos, Float
       attribute :impostos, Impostos
+      attribute :outrasDespesas, Float
 
     end
   end
