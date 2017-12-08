@@ -31,20 +31,6 @@ Ou instale manualmente:
 
     $ gem install enotas_nfe
 
-## Configurando a empresa
-
-```ruby
-client = Enotas::Client.new('sua-api-key-do-e-notas', 'nfse')
-empresa = EnotasNfe::Model::Empresa.new(client.get_empresa('id-da-empresa-no-enotas'))
-
-## realize os ajustes da empresa, como nomeFantasia, email, etc
-
-## atualize ou crie uma empresa
-client.create_update_empresa(empresa)
-
-```
-
-
 ## Uso básico para NFSE
 
 * Instancie o cliente passando sua API key:
@@ -98,7 +84,7 @@ nfe.valorTotal = 1.00
 
 #enviando a nota
 nfe.nfse_create('id-da-empresa-no-enotas', nfe)
-
+client.nfse_delete('id-da-empresa-no-enotas', id-da-nota)
 ```
 
 ## Uso básico para NFE
@@ -142,6 +128,13 @@ nfe.cliente.endereco = {
   cep: '80000000'
 }
 
+#se tiver frete
+nfe.transporte = EnotasNfe::Model::Transporte.new
+nfe.transporte.frete = {
+  modalidade: "PorContaDoEmitente",
+  valor: 20.00
+}
+
 nfe.enviarPorEmail = true
 
 produto = EnotasNfe::Model::Produto.new
@@ -167,6 +160,234 @@ nfe.informacoesAdicionais = "I - Documento emitido por ME ou EPP optante pelo Si
 #enviando a nota
 client.nfe_create('id-da-empresa-no-enotas', nfe)
 
+#cancelando uma nota
+client.nfe_delete('id-da-empresa-no-enotas', id-da-nota)
+```
+
+## Uso básico para devolução de uma NFE
+
+* Instancie o cliente passando sua API key:
+
+```ruby
+client = Enotas::Client.new('sua-api-key-do-e-notas', 'nfe')
+```
+
+Agora já podemos emitir uma nota!
+
+* Emitindo uma nova de Devolução de produto - NFe:
+
+```ruby
+nfe = EnotasNfe::Model::Nfe.new
+nfe.id = '1'
+nfe.ambienteEmissao = "Homologacao" # "Producao" ou "Homologacao"
+nfe.naturezaOperacao = "Devolução"
+nfe.tipoOperacao =  "Entrada"
+nfe.nfeReferenciada = [{
+    "chaveAcesso": "000121111999005183450010000028881000025656"
+}]
+nfe.finalidade = "DevolucaoMercadoria"
+nfe.consumidorFinal = true
+nfe.indicadorPresencaConsumidor = true
+
+nfe.cliente = {
+  tipoPessoa: 'F',
+  indicadorContribuinteICMS: "NaoContribuinte",
+  nome: 'Luis Fernando Pimenta',
+  email: 'email@luispimenta.me',
+  cpfCnpj: '33199707807',
+  telefone: '19981328642',
+  inscricaoMunicipal: '',
+  inscricaoEstadual: '',
+}
+
+nfe.cliente.endereco = {
+  uf: 'PR',
+  cidade: 'Curitiba',
+  logradouro: 'Rua 01',
+  numero: '112',
+  bairro: 'Centro',
+  cep: '80000000'
+}
+
+#se tiver frete
+nfe.transporte = EnotasNfe::Model::Transporte.new
+nfe.transporte.frete = {
+  modalidade: "PorContaDoEmitente",
+  valor: 20.00
+}
+
+nfe.enviarPorEmail = true
+
+produto = EnotasNfe::Model::Produto.new
+produto.cfop = "5101"
+produto.codigo = '1'
+produto.descricao = 'pneu'
+produto.ncm = '38151210'
+produto.unidadeMedida = 'UN'
+produto.valorUnitario = 1.00
+produto.impostos = EnotasNfe::Model::Impostos.new
+produto.impostos.icms = EnotasNfe::Model::Icms.new
+produto.impostos.icms.situacaoTributaria = '102'
+produto.impostos.icms.origem = 0
+produto.impostos.pis = EnotasNfe::Model::Pis.new
+produto.impostos.pis.situacaoTributaria = '07'
+produto.impostos.cofins = EnotasNfe::Model::Cofins.new
+produto.impostos.cofins.situacaoTributaria = '07'
+
+nfe.itens << produto
+
+nfe.informacoesAdicionais = "I - Documento emitido por ME ou EPP optante pelo Simples Nacional.\r\n II - Não gera direito a crédito fiscal de ICMS, de ISS e de IPI." #opcional
+
+#enviando a nota
+client.nfe_create('id-da-empresa-no-enotas', nfe)
+```
+
+## Uso básico para NFCE
+
+* Para emitir uma NFCE você precisa definir o ID E O CSC em produção, que também servirá para homologação
+
+```ruby
+client = Enotas::Client.new('sua-api-key-do-e-notas', 'nfe')
+empresa = EnotasNfe::Model::Empresa.new(client.get_empresa('id-da-empresa-no-enotas'))
+empresa.emissaoNFeConsumidor.ambienteProducao = EnotasNfe::Model::AmbienteProducao.new
+empresa.emissaoNFeConsumidor.ambienteProducao.serieNFe = "2"
+empresa.emissaoNFeConsumidor.ambienteProducao.sequencialNFe = "7"
+empresa.emissaoNFeConsumidor.ambienteProducao.csc = EnotasNfe::Model::Csc.new
+empresa.emissaoNFeConsumidor.ambienteProducao.csc.id = '000001'
+empresa.emissaoNFeConsumidor.ambienteProducao.csc.codigo = '800FA97D5C3F4219A89DCE3FCE813A6F'
+client.create_update_empresa(empresa)
+```
+
+* Instancie o cliente passando sua API key:
+
+```ruby
+client = Enotas::Client.new('sua-api-key-do-e-notas', 'nfe')
+```
+
+Agora já podemos emitir uma nota!
+
+* Emitindo uma nova de VENDA de produto - NFCe:
+
+```ruby
+nfe = EnotasNfe::Model::Nfe.new
+
+nfe.id = '1000'
+nfe.ambienteEmissao = 'Homologacao'
+
+nfe.pedido = {
+  "presencaConsumidor": "OperacaoPresencial"
+}
+
+nfe.pedido.pagamento = {
+  "tipo": "PagamentoAVista"
+}
+
+nfe.pedido.pagamento.formas = [
+  {
+    "tipo": "Dinheiro", 
+    "valor": 10.00
+  }
+]
+
+nfe.enviarPorEmail = true
+
+produto = EnotasNfe::Model::Produto.new
+produto.cfop = "5101"
+produto.codigo = "1"
+produto.descricao = "pneu"
+produto.ncm = "38151210"
+produto.unidadeMedida = "UN"
+produto.valorUnitario = 10.00
+
+produto.impostos = EnotasNfe::Model::Impostos.new
+produto.impostos.icms = EnotasNfe::Model::Icms.new
+produto.impostos.icms.situacaoTributaria = "102"
+produto.impostos.icms.origem = 0
+
+nfe.itens << produto
+
+#criar uma nfce
+client.nfce_create('id-da-empresa-no-enotas', nfe)
+#cancelando uma nota
+client.nfce_delete('id-da-empresa-no-enotas', id-da-nota)
+```
+
+## Uso básico para NOTA CONJUGADA
+
+* Instancie o cliente passando sua API key:
+
+```ruby
+client = Enotas::Client.new('sua-api-key-do-e-notas', 'nfe')
+```
+
+Agora já podemos emitir uma nota!
+
+* Emitindo uma nova conjugada
+
+```ruby
+nfe = EnotasNfe::Model::Nfe.new
+nfe.id = "1"
+# "Producao" ou "Homologacao"
+nfe.ambienteEmissao = "Homologacao" 
+nfe.naturezaOperacao = "Venda"
+nfe.finalidade = "Normal"
+nfe.consumidorFinal = true
+nfe.indicadorPresencaConsumidor = true
+nfe.cliente = {
+  tipoPessoa: "F",
+  indicadorContribuinteICMS: "NaoContribuinte",
+  nome: "Luis Fernando Pimenta",
+  email: "email@luispimenta.me",
+  cpfCnpj: "33199707807",
+  telefone: "19981328642",
+  inscricaoMunicipal: "",
+  inscricaoEstadual: "",
+}
+nfe.cliente.endereco = {
+  uf: "PR",
+  cidade: "Curitiba",
+  logradouro: "Rua 01",
+  numero: "112",
+  bairro: "Centro",
+  cep: "80000000"
+}
+nfe.enviarPorEmail = true
+produto = EnotasNfe::Model::Produto.new
+produto.cfop = "5101"
+produto.codigo = "1"
+produto.descricao = "pneu"
+produto.ncm = "38151210"
+produto.unidadeMedida = "UN"
+produto.valorUnitario = 1.00
+produto.impostos = EnotasNfe::Model::Impostos.new
+produto.impostos.icms = EnotasNfe::Model::Icms.new
+produto.impostos.icms.situacaoTributaria = "102"
+produto.impostos.icms.origem = 0
+produto.impostos.pis = EnotasNfe::Model::Pis.new
+produto.impostos.pis.situacaoTributaria = "07"
+produto.impostos.cofins = EnotasNfe::Model::Cofins.new
+produto.impostos.cofins.situacaoTributaria = "07"
+nfe.itens << produto
+
+produto = EnotasNfe::Model::Produto.new
+#OBS: Deve ser utilizado o CFOP 6933 quando for serviço realizado fora do estado.
+produto.cfop = "5933" 
+produto.codigo = "S001"
+produto.descricao = "Serviço de Troca de Disco de Freio (dianteiro ou traseiro)"
+produto.ncm = "00"
+produto.unidadeMedida = "UN"
+produto.valorUnitario = 1.00
+produto.impostos = EnotasNfe::Model::Impostos.new
+produto.impostos.pis = EnotasNfe::Model::Pis.new
+produto.impostos.pis.situacaoTributaria = "07"
+produto.impostos.cofins = EnotasNfe::Model::Cofins.new
+produto.impostos.cofins.situacaoTributaria = "07"
+nfe.itens << produto
+
+nfe.valorTotal = 2.00
+
+#criar uma nfce
+client.nfe_create('id-da-empresa-no-enotas', nfe)
 #cancelando uma nota
 client.nfe_delete('id-da-empresa-no-enotas', id-da-nota)
 ```
