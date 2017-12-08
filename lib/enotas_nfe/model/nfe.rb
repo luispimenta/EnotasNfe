@@ -23,6 +23,8 @@ module EnotasNfe
       attribute :servico, Servico
       attribute :cliente, Cliente
       attribute :pedido, Pedido
+      attribute :nfeReferenciada, Array
+      attribute :transporte, Transporte
 
     end
   end
