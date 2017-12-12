@@ -13,7 +13,7 @@ module EnotasNfe
 
       attribute :id #Em casos de atualização o identificador único da empresa deve ser informado, atributo "id".
       attribute :empresaId, String
-      attribute :logotipo, String
+      attribute :logotipo, Faraday::UploadIO
       attribute :cnpj, String
       attribute :inscricaoMunicipal, String
       attribute :razaoSocial, String

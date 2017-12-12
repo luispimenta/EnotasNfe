@@ -6,6 +6,7 @@ module EnotasNfe
 
       attribute :tipo, String
       attribute :valor, Float
+      attribute :credenciadoraCartao, CredenciadoraCartao
       
     end
   end
