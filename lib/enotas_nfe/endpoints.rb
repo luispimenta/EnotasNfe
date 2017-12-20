@@ -19,6 +19,11 @@ module EnotasNfe
       post("empresas/#{firm_id}/logo", body)
     end
 
+    ## rota para carta de correcao
+    def cc_create(firm_id, body)
+      post("empresas/#{firm_id}/nf-e/cartaCorrecao", body)
+    end
+
     ## rotas para nota fiscal eletronica
     def nfe_create(firm_id, body)
       post("empresas/#{firm_id}/nf-e", body)
