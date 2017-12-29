@@ -36,7 +36,7 @@ Ou instale manualmente:
 * Instancie o cliente passando sua API key:
 
 ```ruby
-client = Enotas::Client.new('sua-api-key-do-e-notas', 'nfse')
+client = EnotasNfe::Client.new('sua-api-key-do-e-notas', 'nfse')
 ```
 
 Agora já podemos emitir uma nota!
@@ -92,7 +92,7 @@ client.nfse_delete('id-da-empresa-no-enotas', id-da-nota)
 * Instancie o cliente passando sua API key:
 
 ```ruby
-client = Enotas::Client.new('sua-api-key-do-e-notas', 'nfe')
+client = EnotasNfe::Client.new('sua-api-key-do-e-notas', 'nfe')
 ```
 
 Agora já podemos emitir uma nota!
@@ -169,7 +169,7 @@ client.nfe_delete('id-da-empresa-no-enotas', id-da-nota)
 * Instancie o cliente passando sua API key:
 
 ```ruby
-client = Enotas::Client.new('sua-api-key-do-e-notas', 'nfe')
+client = EnotasNfe::Client.new('sua-api-key-do-e-notas', 'nfe')
 ```
 
 Agora já podemos emitir uma nota!
@@ -247,7 +247,7 @@ client.nfe_create('id-da-empresa-no-enotas', nfe)
 * Para emitir uma NFCE você precisa definir o ID E O CSC em produção, que também servirá para homologação
 
 ```ruby
-client = Enotas::Client.new('sua-api-key-do-e-notas', 'nfe')
+client = EnotasNfe::Client.new('sua-api-key-do-e-notas', 'nfe')
 empresa = EnotasNfe::Model::Empresa.new(client.get_empresa('id-da-empresa-no-enotas'))
 empresa.emissaoNFeConsumidor.ambienteProducao = EnotasNfe::Model::AmbienteProducao.new
 empresa.emissaoNFeConsumidor.ambienteProducao.serieNFe = "2"
@@ -261,7 +261,7 @@ client.create_update_empresa(empresa)
 * Instancie o cliente passando sua API key:
 
 ```ruby
-client = Enotas::Client.new('sua-api-key-do-e-notas', 'nfe')
+client = EnotasNfe::Client.new('sua-api-key-do-e-notas', 'nfe')
 ```
 
 Agora já podemos emitir uma nota!
@@ -284,7 +284,7 @@ nfe.pedido.pagamento = {
 
 nfe.pedido.pagamento.formas = [
   {
-    "tipo": "Dinheiro", 
+    "tipo": "Dinheiro",
     "valor": 10.00
   }
 ]
@@ -317,7 +317,7 @@ client.nfce_delete('id-da-empresa-no-enotas', id-da-nota)
 * Instancie o cliente passando sua API key:
 
 ```ruby
-client = Enotas::Client.new('sua-api-key-do-e-notas', 'nfe')
+client = EnotasNfe::Client.new('sua-api-key-do-e-notas', 'nfe')
 ```
 
 Agora já podemos emitir uma nota!
@@ -328,7 +328,7 @@ Agora já podemos emitir uma nota!
 nfe = EnotasNfe::Model::Nfe.new
 nfe.id = "1"
 # "Producao" ou "Homologacao"
-nfe.ambienteEmissao = "Homologacao" 
+nfe.ambienteEmissao = "Homologacao"
 nfe.naturezaOperacao = "Venda"
 nfe.finalidade = "Normal"
 nfe.consumidorFinal = true
@@ -371,7 +371,7 @@ nfe.itens << produto
 
 produto = EnotasNfe::Model::Produto.new
 #OBS: Deve ser utilizado o CFOP 6933 quando for serviço realizado fora do estado.
-produto.cfop = "5933" 
+produto.cfop = "5933"
 produto.codigo = "S001"
 produto.descricao = "Serviço de Troca de Disco de Freio (dianteiro ou traseiro)"
 produto.ncm = "00"
