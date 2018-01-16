@@ -1,7 +1,7 @@
 module EnotasNfe
   module Request
     include Connection
-  
+
     def get(path, body = {})
       request(:get, path, body)
     end
@@ -27,7 +27,7 @@ module EnotasNfe
           request.url(path, body_serialized)
         when :post
           request.path = path
-          puts request.body = body_serialized.to_json
+          EnotasNfe.logger.info request.body = body_serialized.to_json
           request.headers
         end
       end

@@ -26,6 +26,7 @@ module EnotasNfe
       attribute :tipoOperacao, String
       attribute :nfeReferenciada, Array
       attribute :transporte, Transporte
+      attribute :observacoes, String
 
     end
   end

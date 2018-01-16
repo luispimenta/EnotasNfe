@@ -4,7 +4,7 @@ module EnotasNfe
 
     ## rotas para criaçacão/update e onfiguraçao da empresa
     def get_empresas(pageNumber, pageSize)
-      get("empresas?pageNumber=#{pageNumber}&pageSize=#{pageNumber}")
+      get("empresas?pageNumber=#{pageNumber}&pageSize=#{pageSize}")
     end
 
     def get_empresa(firm_id)
