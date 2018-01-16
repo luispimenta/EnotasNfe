@@ -10,7 +10,7 @@ module EnotasNfe
       attribute :codigo, String
       attribute :descricao, String
       attribute :ncm, String
-      attribute :quantidade, Integer
+      attribute :quantidade, Float
       attribute :unidadeMedida, String
       attribute :valorUnitario, Float
       attribute :descontos, Float

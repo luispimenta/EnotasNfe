@@ -30,6 +30,7 @@ require "enotas_nfe/model/endereco_entrega"
 require "enotas_nfe/model/transportadora"
 require "enotas_nfe/model/frete"
 require "enotas_nfe/model/transporte"
+require "enotas_nfe/model/valor_imposto"
 require "enotas_nfe/model/nfe"
 require "enotas_nfe/model/carta_correcao"
 require "enotas_nfe/model/cofins"
@@ -41,4 +42,11 @@ require "enotas_nfe/facades"
 require "enotas_nfe/client"
 
 module EnotasNfe
+  def self.logger
+    @@logger ||= defined?(Rails) ? Rails.logger : Logger.new(STDOUT)
+  end
+
+  def self.logger=(logger)
+    @@logger = logger
+  end
 end

@@ -1,7 +1,7 @@
 require 'faraday_middleware'
 
 module EnotasNfe
-  module Connection    
+  module Connection
     private
 
     def connection

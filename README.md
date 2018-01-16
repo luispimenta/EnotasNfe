@@ -83,7 +83,7 @@ nfe.servico = {
 nfe.valorTotal = 1.00
 
 #enviando a nota
-nfe.nfse_create('id-da-empresa-no-enotas', nfe)
+client.nfse_create('id-da-empresa-no-enotas', nfe)
 client.nfse_delete('id-da-empresa-no-enotas', id-da-nota)
 ```
 
