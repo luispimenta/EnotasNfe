@@ -13,21 +13,26 @@ module EnotasNfe
 
       attribute :id #Em casos de atualização o identificador único da empresa deve ser informado, atributo "id".
       attribute :empresaId, String
-      attribute :logotipo, Faraday::UploadIO
-      attribute :cnpj, String
-      attribute :inscricaoMunicipal, String
       attribute :razaoSocial, String
       attribute :nomeFantasia, String
-      attribute :optanteSimplesNacional, Boolean
+      attribute :logotipo, Faraday::UploadIO
+      attribute :cnpj, String
       attribute :email, String
       attribute :telefoneComercial, String
-      attribute :endereco, Endereco
       attribute :enviarEmailCliente, Boolean
+      attribute :endereco, Endereco
+      attribute :inscricaoMunicipal, String
+      attribute :inscricaoEstadual, String
+      attribute :regimeEspecialTributacao, String
+      attribute :descricaoServico, String
+      attribute :cnae, String
+      attribute :aedf, String
+      attribute :aliquotaIss, Float
+      attribute :optanteSimplesNacional, Boolean
+      attribute :incentivadorCultural, Boolean
       attribute :emissaoNFeConsumidor, EmissaoNFeConsumidor
       attribute :configuracoesNFSeHomologacao, ConfiguracoesNFSeHomologacao
       attribute :configuracoesNFSeProducao, ConfiguracoesNFSeProducao
-      attribute :incentivadorCultural, Boolean
-     
     end
   end
 end
