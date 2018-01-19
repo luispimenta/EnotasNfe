@@ -12,6 +12,7 @@ module EnotasNfe
       include Virtus.model
 
       attribute :id #Em casos de atualização o identificador único da empresa deve ser informado, atributo "id".
+      attribute :idExterno, String
       attribute :empresaId, String
       attribute :razaoSocial, String
       attribute :nomeFantasia, String
@@ -25,6 +26,8 @@ module EnotasNfe
       attribute :inscricaoEstadual, String
       attribute :regimeEspecialTributacao, String
       attribute :descricaoServico, String
+      attribute :codigoServicoMunicipal, String
+      attribute :itemListaServicoLC116, String
       attribute :cnae, String
       attribute :aedf, String
       attribute :aliquotaIss, Float
