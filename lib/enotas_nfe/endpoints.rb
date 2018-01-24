@@ -16,7 +16,11 @@ module EnotasNfe
     end
 
     def set_logo(firm_id, body)
-      post("empresas/#{firm_id}/logo", body)
+      multipart_post("empresas/#{firm_id}/logo", body)
+    end
+
+    def set_certificado_digital(firm_id, body)
+      multipart_post("empresas/#{firm_id}/certificadoDigital", body)
     end
 
     ## rota para carta de correcao

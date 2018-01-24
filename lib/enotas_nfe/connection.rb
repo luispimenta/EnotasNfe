@@ -18,9 +18,9 @@ module EnotasNfe
         connection.use Middleware, auth_token
         connection.use Faraday::Response::ParseJson
 
+        connection.request :multipart
         connection.adapter :net_http
       end
     end
-
   end
 end
