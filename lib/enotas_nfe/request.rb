@@ -14,7 +14,25 @@ module EnotasNfe
       request(:delete, path, body)
     end
 
+    def multipart_post(path, body = {})
+      request_multipart(path, body)
+    end
+
     private
+
+    def request_multipart(path, body)
+      response = connection.post do |request|
+        multipart_body = {}
+        multipart_body["arquivo"] = Faraday::UploadIO.new(body[:arquivo].tempfile, "application/x-pkcs12")
+        multipart_body["senha"] = body[:senha]
+
+        request.path = path
+        request.body = multipart_body
+        request.headers['Content-Type'] = 'multipart/form-data'
+      end
+
+      response.body
+    end
 
     def request(method, path, body)
       body_serialized = serialize_body(body)
@@ -38,6 +56,5 @@ module EnotasNfe
     def serialize_body(body)
       VirtusConvert.new(body, reject_nils: true).to_hash
     end
-
   end
 end
