@@ -6,7 +6,9 @@ module EnotasNfe
 
       attribute :pais, String
       attribute :uf, String
+      attribute :codigoIbgeUf, Integer
       attribute :cidade, String
+      attribute :codigoIbgeCidade, Integer
       attribute :logradouro, String
       attribute :numero, String
       attribute :complemento, String
