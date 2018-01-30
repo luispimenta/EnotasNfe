@@ -23,6 +23,10 @@ module EnotasNfe
       multipart_post("empresas/#{firm_id}/certificadoDigital", body)
     end
 
+    def get_caracteristicas_prefeitura(codigo_ibge_cidade)
+      get("estados/cidades/#{codigo_ibge_cidade}/provedor")
+    end
+
     ## rota para carta de correcao
     def cc_create(firm_id, body)
       post("empresas/#{firm_id}/nf-e/cartaCorrecao", body)
