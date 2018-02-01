@@ -8,6 +8,7 @@ module EnotasNfe
       attribute :serieNFe, String
       attribute :sequencialLoteNFe, Integer
       attribute :usuarioAcessoProvedor, String
+      attribute :senhaAcessoProvedor, String
       attribute :tokenAcessoProvedor, String
 
     end
