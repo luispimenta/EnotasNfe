@@ -13,11 +13,11 @@ module EnotasNfe
       attribute :itemListaServicoLC116, String
       attribute :ufPrestacaoServico, String
       attribute :municipioPrestacaoServico, String
-      attribute :valorCofins, Decimal
-      attribute :valorInss, Decimal
-      attribute :valorIr, Decimal
-      attribute :valorPis, Decimal
-      attribute :valorCsll, Decimal
+      attribute :valorCofins, Float
+      attribute :valorInss, Float
+      attribute :valorIr, Float
+      attribute :valorPis, Float
+      attribute :valorCsll, Float
 
     end
   end
