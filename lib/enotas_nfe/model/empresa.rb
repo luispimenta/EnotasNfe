@@ -24,6 +24,8 @@ module EnotasNfe
       attribute :endereco, Endereco
       attribute :inscricaoMunicipal, String
       attribute :inscricaoEstadual, String
+      attribute :prazo, Integer
+      attribute :status, String
       attribute :regimeEspecialTributacao, String
       attribute :descricaoServico, String
       attribute :codigoServicoMunicipal, String
