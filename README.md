@@ -96,7 +96,7 @@ empresa.configuracoesNFSeHomologacao = {
 Como saber quais dados são obrigatórios em um prefeitura, ou se a prefeitura é suportada pelo Enotas?
 
 ```ruby
-respose = client.get_caracteristicas_prefeitura('codigo-ibge-cidade')
+response = client.get_caracteristicas_prefeitura('codigo-ibge-cidade')
 ```
 
 Caso a prefeitura não seja suportada, o response vai ter uma mensagem de erro, informando. Quando é suportada, 
