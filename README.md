@@ -93,7 +93,7 @@ empresa.configuracoesNFSeHomologacao = {
 }
 ```
 
-* Como saber quais dados são obrigatórios em um prefeitura, ou se a prefeitura é suportada pelo Enotas?
+Como saber quais dados são obrigatórios em um prefeitura, ou se a prefeitura é suportada pelo Enotas?
 
 ```ruby
 respose = client.get_caracteristicas_prefeitura('codigo-ibge-cidade')
@@ -153,20 +153,24 @@ No caso de sucesso dessa operação, será retornado o campo `empresaId`, que de
 
 ## Upload do certificado
 
+```ruby
 certificate = {
   arquivo: 'arquivo-de-upload',
   senha: 'pass'
 }
 
 client.set_certificado_digital('empresaId', certificate)
+```
 
 ## Upload da logo
 
+```ruby
 logo = {
   arquivo: 'arquivo-de-upload'
 }
 
 client.set_logo('empresaId', logo)
+```
 
 ## Uso básico para NFSE
 
