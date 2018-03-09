@@ -31,6 +31,147 @@ Ou instale manualmente:
 
     $ gem install enotas_nfe
 
+## Cadastro de empresa (emissor)
+
+* Instancie o cliente passando a sua API key:
+
+```ruby
+client = EnotasNfe::Client.new('sua-api-key-do-e-notas', 'nfse')
+```
+
+* Carregue uma instância de Empresa com os dados:
+
+```ruby
+empresa = EnotasNfe::Model::Empresa.new
+empresa.id = 1 # Usado para quando se deseja atualizar o cadastro
+empresa.cnpj = '000000000000000'
+empresa.nomeFantasia = 'Nome Fantasia'
+empresa.razaoSocial = 'Razão Social'
+empresa.inscricaoMunicipal = '00000000'
+empresa.inscricaoEstadual = '00000000'
+empresa.telefoneComercial = '00000000'
+empresa.email = 'email@mail.com'
+empresa.enviarEmailCliente = false
+empresa.regimeEspecialTributacao = '01'
+empresa.aedf = '00000'
+empresa.descricaoServico = '00'
+empresa.codigoServicoMunicipal = '00'
+empresa.cnae = '000000'
+empresa.aliquotaIss = '0.00'
+empresa.optanteSimplesNacional = true
+empresa.incentivadorCultural = false
+empresa.itemListaServicoLC116 = '0.00'
+empresa.endereco = {
+  logradouro: 'Logradouro',
+  complemento: 'Complemento',
+  numero: '1000',
+  bairro: 'Centro',
+  cidade: 'Cidade',
+  codigoIbgeCidade: 666999,
+  uf: SC,
+  cep: 00000000
+}
+empresa.configuracoesNFSeProducao = {
+  serieNFe = 'NFe',
+  sequencialNFe = 1,
+  sequencialLoteNFe = 1,
+
+  # Esses dados variam de acordo com a prefeitura, verifique a necessidade no endpoint de cidades suportadas
+  usuarioAcessoProvedor = 'user',
+  senhaAcessoProvedor = 'pass',
+  tokenAcessoProvedor = 'super-token'
+}
+empresa.configuracoesNFSeHomologacao = {
+  serieNFe = 'NFe',
+  sequencialNFe = 1,
+  sequencialLoteNFe = 1,
+
+  # Esses dados variam de acordo com a prefeitura, verifique a necessidade no endpoint de cidades suportadas
+  usuarioAcessoProvedor = 'user',
+  senhaAcessoProvedor = 'pass',
+  tokenAcessoProvedor = 'super-token'
+}
+```
+
+Como saber quais dados são obrigatórios em um prefeitura, ou se a prefeitura é suportada pelo Enotas?
+
+```ruby
+response = client.get_caracteristicas_prefeitura('codigo-ibge-cidade')
+```
+
+Caso a prefeitura não seja suportada, o response vai ter uma mensagem de erro, informando. Quando é suportada, 
+retorna dados relevantes sobre a prefeitura, que devem ser usados para auxiliar a formação do objeto empresa:
+
+```ruby
+prefeitura = EnotasNfe::Model::CaracteristicaPrefeitura.new(response)
+
+# 0: Nenhuma
+# 1: Certificado
+# 2: Usuário e Senha
+# 3: Token
+prefeitura.tipoAutenticacao
+
+# 0: Não utiliza
+# 1: Opcional
+# 2: Obrigatória
+prefeitura.assinaturaDigital
+
+prefeitura.usaCNAE
+prefeitura.usaItemListaServico
+prefeitura.campoLoginProvedor
+prefeitura.suportaCancelamento
+prefeitura.usaAEDF
+prefeitura.usaRegimeEspecialTributacao
+prefeitura.usaCodigoServicoMunicipal
+prefeitura.usaDescricaoServico
+prefeitura.usaCNAE
+prefeitura.usaItemListaServico
+prefeitura.helpTipoAutenticacao
+prefeitura.helpInscricaoMunicipal
+prefeitura.helpRegimeEspecialTributacao
+prefeitura.helpCodigoServicoMunicipal
+prefeitura.helpDescricaoServico
+prefeitura.helpCNAE
+prefeitura.helpItemListaServico
+prefeitura.suportaEmissaoNFeSemCliente
+prefeitura.suportaEmissaoNFeClienteSemCpf
+prefeitura.suportaEmissaoNFeClienteSemEndereco
+prefeitura.suportaCancelamentoNFeSemCliente
+prefeitura.suportaCancelamentoNFeClienteSemCpf
+
+# Retorna uma lista com os regimes de tributação suportados pela prefeitura
+prefeitura.regimesEspecialTributacao
+```
+
+* Salve:
+
+```ruby
+client.create_update_empresa(empresa)
+```
+
+No caso de sucesso dessa operação, será retornado o campo `empresaId`, que deve ser informado, quando deseja ser atualizado um cadastro, ou nos endpoints de Upload.
+
+## Upload do certificado
+
+```ruby
+certificate = {
+  arquivo: 'arquivo-de-upload',
+  senha: 'pass'
+}
+
+client.set_certificado_digital('empresaId', certificate)
+```
+
+## Upload da logo
+
+```ruby
+logo = {
+  arquivo: 'arquivo-de-upload'
+}
+
+client.set_logo('empresaId', logo)
+```
+
 ## Uso básico para NFSE
 
 * Instancie o cliente passando sua API key:
@@ -418,7 +559,6 @@ Issues e comentários são sempre bem-vindos no repoistório oficial: https://gi
 Quer contribuir e não sabe por onde começar? Veja nosso ROADMAP:
 
 * Escrever testes;
-* Finalizar chamada para troca de logotipo da empresa
 
 ## License
 
