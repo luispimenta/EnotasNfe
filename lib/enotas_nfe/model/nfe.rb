@@ -9,7 +9,7 @@ module EnotasNfe
       attribute :serie, String
       attribute :enviarPorEmail, Boolean
       attribute :ambienteEmissao, String
-      attribute :dataCompetencia, Time
+      attribute :dataCompetencia, String
       attribute :naturezaOperacao, String
       attribute :consumidorFinal, Boolean
       attribute :finalidade, String
