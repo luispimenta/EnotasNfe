@@ -6,7 +6,7 @@ module EnotasNfe
 
       attribute :usarDadosEmitente, Boolean
       attribute :tipoPessoa, String
-      attribute :CpfCnpj, String
+      attribute :cpfCnpj, String
       attribute :nome, String
       attribute :inscricaoEstadual, String
       attribute :endereco, String
