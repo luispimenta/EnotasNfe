@@ -9,7 +9,7 @@ module EnotasNfe
       attribute :cpfCnpj, String
       attribute :nome, String
       attribute :inscricaoEstadual, String
-      attribute :endereco, String
+      attribute :enderecoCompleto, String
       attribute :cidade, String
       attribute :uf, String
     end

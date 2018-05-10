@@ -4,6 +4,7 @@ module EnotasNfe
 
       include Virtus.model
       require "enotas_nfe/model/impostos"
+      require "enotas_nfe/model/combustivel"
 
       attribute :descricao, String
       attribute :cfop, String
@@ -16,6 +17,7 @@ module EnotasNfe
       attribute :valorUnitario, Float
       attribute :descontos, Float
       attribute :impostos, Impostos
+      attribute :combustivel, Combustivel
       attribute :outrasDespesas, Float
       attribute :seguro, Float
 
