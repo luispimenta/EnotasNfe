@@ -7,8 +7,8 @@ module EnotasNfe
 
       attribute :cide, Cide
       attribute :codigoProdutoANP, String
-      attribute :percentualGasNatural, Float
-      attribute :codif, Integer
+      attribute :percentualGasNatural, String
+      attribute :codif, String
       attribute :quantidadeFaturadaTempAmbiente, Float
       attribute :ufConsumo, String
 
