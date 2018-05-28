@@ -18,6 +18,8 @@ module EnotasNfe
       attribute :idExterno, String
       attribute :indicadorPresencaConsumidor, String
       attribute :valorTotal, Float
+      attribute :deducoes, Float
+      attribute :descontos, Float
       attribute :idExternoSubstituir, String
       attribute :nfeIdSubstitituir, String
       attribute :informacoesAdicionais, String
