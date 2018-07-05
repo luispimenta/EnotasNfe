@@ -17,6 +17,7 @@ module EnotasNfe
       attribute :tipo, String
       attribute :idExterno, String
       attribute :indicadorPresencaConsumidor, String
+      attribute :indicadorFormaPagamento, String
       attribute :valorTotal, Float
       attribute :idExternoSubstituir, String
       attribute :nfeIdSubstitituir, String
