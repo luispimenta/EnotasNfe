@@ -7,7 +7,7 @@ module EnotasNfe
       attribute :quantidade, Float
       attribute :especie, String
       attribute :marca, String
-      attribute :numeracao, Integer
+      attribute :numeracao, String
       attribute :pesoLiquido, Float
       attribute :pesoBruto, Float
 
