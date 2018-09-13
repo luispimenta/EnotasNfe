@@ -8,6 +8,8 @@ module EnotasNfe
       attribute :numero, Integer
       attribute :serie, String
       attribute :enviarPorEmail, Boolean
+      attribute :numeroRps, Integer
+      attribute :serieRps, String
       attribute :ambienteEmissao, String
       attribute :dataCompetencia, String
       attribute :dataEmissao, String
