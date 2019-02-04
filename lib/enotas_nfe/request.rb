@@ -23,7 +23,7 @@ module EnotasNfe
     def request_multipart(path, body)
       response = connection.post do |request|
         multipart_body = {}
-        multipart_body["arquivo"] = Faraday::UploadIO.new(body[:arquivo].tempfile, "application/x-pkcs12")
+        multipart_body["arquivo"] = Faraday::UploadIO.new(body[:arquivo], "application/x-pkcs12")
         multipart_body["senha"] = body[:senha]
 
         request.path = path
