@@ -8,6 +8,8 @@ module EnotasNfe
       attribute :numero, Integer
       attribute :serie, String
       attribute :enviarPorEmail, Boolean
+      attribute :numeroRps, Integer
+      attribute :serieRps, String
       attribute :ambienteEmissao, String
       attribute :dataCompetencia, String
       attribute :dataEmissao, String
@@ -17,7 +19,10 @@ module EnotasNfe
       attribute :tipo, String
       attribute :idExterno, String
       attribute :indicadorPresencaConsumidor, String
+      attribute :indicadorFormaPagamento, String
       attribute :valorTotal, Float
+      attribute :deducoes, Float
+      attribute :descontos, Float
       attribute :idExternoSubstituir, String
       attribute :nfeIdSubstitituir, String
       attribute :informacoesAdicionais, String
