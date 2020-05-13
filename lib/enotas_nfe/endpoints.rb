@@ -27,6 +27,10 @@ module EnotasNfe
       get("estados/cidades/#{codigo_ibge_cidade}/provedor")
     end
 
+    def desabilitar_empresa(firm_id)
+      post("empresas/#{firm_id}/desabilitar")
+    end
+
     ## rota para carta de correcao
     def cc_create(firm_id, body)
       post("empresas/#{firm_id}/nf-e/cartaCorrecao", body)
