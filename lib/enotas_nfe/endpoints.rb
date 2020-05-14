@@ -31,7 +31,7 @@ module EnotasNfe
       post("empresas/#{firm_id}/desabilitar")
     end
 
-    def habilitar_empresa
+    def habilitar_empresa(firm_id)
       post("empresas/#{firm_id}/habilitar")
     end
 
