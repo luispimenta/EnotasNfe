@@ -34,6 +34,7 @@ module EnotasNfe
       attribute :nfeReferenciada, Array
       attribute :transporte, Transporte
       attribute :observacoes, String
+      attribute :metadados, Metadados
 
     end
   end
