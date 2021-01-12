@@ -3,6 +3,7 @@ module EnotasNfe
     class Nfe
 
       include Virtus.model
+      require "enotas_nfe/model/metadados"
 
       attribute :id, String
       attribute :numero, Integer
@@ -34,6 +35,7 @@ module EnotasNfe
       attribute :nfeReferenciada, Array
       attribute :transporte, Transporte
       attribute :observacoes, String
+      attribute :metadados, Metadados
 
     end
   end
