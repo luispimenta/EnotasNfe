@@ -3,6 +3,7 @@ module EnotasNfe
     class Metadados
 
       include Virtus.model
+      require "enotas_nfe/model/cidade_prestacao"
 
       attribute :cidadeprestacao, CidadePrestacao
 

@@ -3,6 +3,7 @@ module EnotasNfe
     class Nfe
 
       include Virtus.model
+      require "enotas_nfe/model/metadados"
 
       attribute :id, String
       attribute :numero, Integer
