@@ -6,7 +6,7 @@ module EnotasNfe
       require "enotas_nfe/model/cidade_prestacao"
 
       attribute :cidadeprestacao, CidadePrestacao
-
+      attribute :valorTotalRecebido, Float
     end
   end
 end
