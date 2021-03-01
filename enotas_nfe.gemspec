@@ -21,11 +21,11 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_development_dependency "bundler", "~> 2.2"
-  s.add_development_dependency 'rake', '~> 12.3'
+  s.add_development_dependency "rake", "~> 12.3"
   s.add_development_dependency "rspec", "~> 3.0"
 
   s.add_runtime_dependency "virtus", '~> 1.0', '>= 1.0.5'
   s.add_runtime_dependency "virtus_convert", "~> 0.1.0"
-  s.add_runtime_dependency "faraday", "~> 0.9"
-  s.add_runtime_dependency "faraday_middleware", "~> 0.12.0"
+  s.add_runtime_dependency "faraday", "~> 1.0"
+  s.add_runtime_dependency "faraday_middleware", "~> 1.0"
 end
