@@ -38,6 +38,8 @@ module EnotasNfe
       body_serialized = serialize_body(body)
 
       response = connection.send(method) do |request|
+        path = ERB::Util.url_encode(path)
+
         case method
         when :get, :delete
           request.url(path, body_serialized)
