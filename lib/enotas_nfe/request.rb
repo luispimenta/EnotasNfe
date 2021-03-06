@@ -38,7 +38,7 @@ module EnotasNfe
       body_serialized = serialize_body(body)
 
       response = connection.send(method) do |request|
-        path = URI.encode(path)
+        path = URI::DEFAULT_PARSER.escape(path)
 
         case method
         when :get, :delete
