@@ -28,5 +28,4 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency "virtus_convert", "~> 0.1.0"
   s.add_runtime_dependency "faraday", "~> 1.0"
   s.add_runtime_dependency "faraday_middleware", "~> 1.0"
-  s.add_runtime_dependency "faraday-detailed_logger"
 end

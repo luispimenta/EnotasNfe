@@ -1,5 +1,4 @@
 require 'faraday_middleware'
-require 'faraday/detailed_logger'
 
 module EnotasNfe
   module Connection
@@ -22,7 +21,6 @@ module EnotasNfe
 
         connection.request :multipart
         connection.adapter :net_http
-        connection.response :detailed_logger, EnotasNfe.logger, "ENotasNfe: "
       end
     end
   end
