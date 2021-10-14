@@ -12,7 +12,7 @@ module EnotasNfe
     end
     
     def get_empresa_by_cnpj(cnpj)
-      get("empresas?pageNumber=1&pageSize=1&searchBy=CNPJ&searchTerm=#{cnpj}")
+      get("empresas?pageNumber=0&pageSize=1&searchBy=CNPJ&searchTerm=#{cnpj}")
     end
 
     def create_update_empresa(body)
