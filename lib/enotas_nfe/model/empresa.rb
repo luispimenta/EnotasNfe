@@ -38,6 +38,7 @@ module EnotasNfe
       attribute :emissaoNFeConsumidor, EmissaoNFeConsumidor
       attribute :configuracoesNFSeHomologacao, ConfiguracoesNFSeHomologacao
       attribute :configuracoesNFSeProducao, ConfiguracoesNFSeProducao
+      attribute :mei, Boolean
     end
   end
 end
