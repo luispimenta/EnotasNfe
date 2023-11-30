@@ -7,6 +7,7 @@ module EnotasNfe
       require "enotas_nfe/model/configuracoes_nfse_homologacao"
       require "enotas_nfe/model/configuracoes_nfse_producao"
       require "enotas_nfe/model/emissao_nfe_consumidor"
+      require "enotas_nfe/model/metadados"
       require 'open-uri'
 
       include Virtus.model
@@ -39,6 +40,7 @@ module EnotasNfe
       attribute :configuracoesNFSeHomologacao, ConfiguracoesNFSeHomologacao
       attribute :configuracoesNFSeProducao, ConfiguracoesNFSeProducao
       attribute :mei, Boolean
+      attribute :metadados, Metadados
     end
   end
 end
