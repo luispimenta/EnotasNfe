@@ -7,6 +7,7 @@ module EnotasNfe
 
       attribute :cidadeprestacao, CidadePrestacao
       attribute :valorTotalRecebido, Float
+      attribute :regimeApuracaoTributosSN, String
     end
   end
 end
