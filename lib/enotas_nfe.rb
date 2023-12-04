@@ -46,6 +46,7 @@ require "enotas_nfe/model/issqn"
 require "enotas_nfe/model/pis"
 require "enotas_nfe/model/metadados"
 require "enotas_nfe/model/cidade_prestacao"
+require "enotas_nfe/model/percentual_tributos_federal"
 require "enotas_nfe/facades"
 require "enotas_nfe/client"
 
