@@ -4,6 +4,7 @@ module EnotasNfe
 
       include Virtus.model
       require "enotas_nfe/model/metadados"
+      require "enotas_nfe/model/dados_adicionais_email"
 
       attribute :id, String
       attribute :numero, Integer
@@ -36,7 +37,7 @@ module EnotasNfe
       attribute :transporte, Transporte
       attribute :observacoes, String
       attribute :metadados, Metadados
-
+      attribute :dadosAdicionaisEmail, DadosAdicionaisEmail
     end
   end
 end
