@@ -48,6 +48,7 @@ require "enotas_nfe/model/metadados"
 require "enotas_nfe/model/dados_adicionais_email"
 require "enotas_nfe/model/cidade_prestacao"
 require "enotas_nfe/model/percentual_tributos_federal"
+require "enotas_nfe/model/info_comercio_exterior"
 require "enotas_nfe/facades"
 require "enotas_nfe/client"
 
